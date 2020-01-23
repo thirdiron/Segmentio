@@ -104,6 +104,7 @@ open class Segmentio: UIView {
         
         if let segmentioCollectionView = segmentioCollectionView {
             addSubview(segmentioCollectionView, options: .overlay)
+            setupConstraintsForCollectionView()
         }
     }
     
@@ -112,6 +113,14 @@ open class Segmentio: UIView {
             return
         }
 
+        segmentioCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        //        if #available(iOS 9.0, *) {
+        //            self.leadingAnchor.constraint(equalTo: segmentioCollectionView.leadingAnchor).isActive = true
+        //            self.trailingAnchor.constraint(equalTo: segmentioCollectionView.trailingAnchor).isActive = true
+        //            self.topAnchor.constraint(equalTo: segmentioCollectionView.topAnchor).isActive = true
+        //            self.bottomAnchor.constraint(equalTo: segmentioCollectionView.bottomAnchor).isActive = true
+        //        }
+        
         let topConstraint = NSLayoutConstraint(
             item: segmentioCollectionView,
             attribute: .top,
@@ -128,7 +137,7 @@ open class Segmentio: UIView {
             attribute: .bottom,
             relatedBy: .equal,
             toItem: self,
-            attribute: .trailing,
+            attribute: .bottom,
             multiplier: 1,
             constant: 0
         )
@@ -236,7 +245,6 @@ open class Segmentio: UIView {
         super.didMoveToSuperview()
         
         setupHorizontalSeparatorIfPossible()
-        setupConstraintsForCollectionView()
     }
     
     open func addBadge(at index: Int, count: Int, color: UIColor = .red) {
