@@ -104,7 +104,58 @@ open class Segmentio: UIView {
         
         if let segmentioCollectionView = segmentioCollectionView {
             addSubview(segmentioCollectionView, options: .overlay)
+            setupConstraintsForCollectionView()
         }
+    }
+    
+    private func setupConstraintsForCollectionView() {
+        guard let segmentioCollectionView = segmentioCollectionView else {
+            return
+        }
+
+        let topConstraint = NSLayoutConstraint(
+            item: segmentioCollectionView,
+            attribute: .top,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .top,
+            multiplier: 1,
+            constant: 0
+        )
+        topConstraint.isActive = true
+        
+        let bottomConstraint = NSLayoutConstraint(
+            item: segmentioCollectionView,
+            attribute: .bottom,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .trailing,
+            multiplier: 1,
+            constant: 0
+        )
+        bottomConstraint.isActive = true
+
+        let leadingConstraint = NSLayoutConstraint(
+            item: segmentioCollectionView,
+            attribute: .leading,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .leading,
+            multiplier: 1,
+            constant: 0
+        )
+        leadingConstraint.isActive = true
+        
+        let trailingConstraint = NSLayoutConstraint(
+            item: segmentioCollectionView,
+            attribute: .trailing,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .trailing,
+            multiplier: 1,
+            constant: 0
+        )
+        trailingConstraint.isActive = true
     }
     
     private func frameForSegmentCollectionView() -> CGRect {
