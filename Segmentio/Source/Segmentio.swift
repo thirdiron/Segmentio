@@ -104,7 +104,6 @@ open class Segmentio: UIView {
         
         if let segmentioCollectionView = segmentioCollectionView {
             addSubview(segmentioCollectionView, options: .overlay)
-            setupConstraintsForCollectionView()
         }
     }
     
@@ -237,6 +236,7 @@ open class Segmentio: UIView {
         super.didMoveToSuperview()
         
         setupHorizontalSeparatorIfPossible()
+        setupConstraintsForCollectionView()
     }
     
     open func addBadge(at index: Int, count: Int, color: UIColor = .red) {
