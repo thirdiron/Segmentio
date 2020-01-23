@@ -114,56 +114,12 @@ open class Segmentio: UIView {
         }
 
         segmentioCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        //        if #available(iOS 9.0, *) {
-        //            self.leadingAnchor.constraint(equalTo: segmentioCollectionView.leadingAnchor).isActive = true
-        //            self.trailingAnchor.constraint(equalTo: segmentioCollectionView.trailingAnchor).isActive = true
-        //            self.topAnchor.constraint(equalTo: segmentioCollectionView.topAnchor).isActive = true
-        //            self.bottomAnchor.constraint(equalTo: segmentioCollectionView.bottomAnchor).isActive = true
-        //        }
-        
-        let topConstraint = NSLayoutConstraint(
-            item: segmentioCollectionView,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .top,
-            multiplier: 1,
-            constant: 0
-        )
-        topConstraint.isActive = true
-        
-        let bottomConstraint = NSLayoutConstraint(
-            item: segmentioCollectionView,
-            attribute: .bottom,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .bottom,
-            multiplier: 1,
-            constant: 0
-        )
-        bottomConstraint.isActive = true
-
-        let leadingConstraint = NSLayoutConstraint(
-            item: segmentioCollectionView,
-            attribute: .leading,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .leading,
-            multiplier: 1,
-            constant: 0
-        )
-        leadingConstraint.isActive = true
-        
-        let trailingConstraint = NSLayoutConstraint(
-            item: segmentioCollectionView,
-            attribute: .trailing,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .trailing,
-            multiplier: 1,
-            constant: 0
-        )
-        trailingConstraint.isActive = true
+        if #available(iOS 9.0, *) {
+            self.leadingAnchor.constraint(equalTo: segmentioCollectionView.leadingAnchor).isActive = true
+            self.trailingAnchor.constraint(equalTo: segmentioCollectionView.trailingAnchor).isActive = true
+            self.topAnchor.constraint(equalTo: segmentioCollectionView.topAnchor).isActive = true
+            self.bottomAnchor.constraint(equalTo: segmentioCollectionView.bottomAnchor).isActive = true
+        }
     }
     
     private func frameForSegmentCollectionView() -> CGRect {
