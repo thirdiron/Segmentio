@@ -14,6 +14,7 @@ public struct SegmentioItem {
     
     public var title: String?
     public var overrideTextColor: UIColor?
+    public var accessibilityLabel: String?
     public var image: UIImage?
     public var selectedImage: UIImage?
     public var imageTintColor: UIColor?
@@ -26,9 +27,10 @@ public struct SegmentioItem {
         return label.intrinsicContentSize.width
     }
 
-    public init(title: String?, image: UIImage?, selectedImage: UIImage? = nil, imageTintColor: UIColor? = nil, overrideTextColor: UIColor? = nil) {
+    public init(title: String?, image: UIImage?, selectedImage: UIImage? = nil, imageTintColor: UIColor? = nil, accessibilityLabel: String? = nil, overrideTextColor: UIColor? = nil) {
         self.title = title
         self.overrideTextColor = overrideTextColor
+        self.accessibilityLabel = accessibilityLabel
         self.image = image
         self.selectedImage = selectedImage ?? image
         self.imageTintColor = imageTintColor

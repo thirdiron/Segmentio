@@ -301,6 +301,12 @@ class SegmentioCell: UICollectionViewCell {
             }
         }
         
+        if let newLabel = (content.accessibilityLabel ?? content.title) {
+            isAccessibilityElement = true
+            accessibilityLabel = newLabel
+            accessibilityTraits = .button
+        }
+
         overrideTextColor = content.overrideTextColor
         if style.isWithText() {
             segmentTitleLabel?.textAlignment = options.labelTextAlignment
